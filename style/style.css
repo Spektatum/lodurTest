@@ -1,21 +1,21 @@
 
 @font-face {
     font-family: thistFont;
-    src: url('fonts/Lato/Lato-Black.ttf');
+    src: url('fonts/Montserrat/Montserrat-Regular.ttf');
     font-weight: normal;
     font-display: swap;
 }
   
 @font-face {
     font-family: thisFont;
-    src: url('fonts/Lato/Lato-Black.ttf');
+    src: url('fonts/Montserrat/Montserrat-Bold.ttf');
     font-weight: bold;
     font-display: swap;
 }
 
 html {
-    background-color:rgb(188, 227, 232);
-    /* font-family: thisFont; */
+    background-color:rgb(211, 250, 254);
+    font-family: thisFont;
     font-family:sans-serif;
 }
 
@@ -27,7 +27,7 @@ h1 {
 }
 
 .mainWrapper {
-    background-color: rgb(167, 229, 238);
+    background-color:rgb(211, 250, 254);
     padding-top: 100px;
 }
 
@@ -46,7 +46,7 @@ h1 {
 
 .header a {
     text-decoration: none;
-    color: rgb(39, 108, 117);
+    color: rgb(18, 58, 63);
     font-size: 1.2em;
     padding: 0.5%;
 
@@ -67,7 +67,7 @@ h1 {
 .footer {
     background-color: rgb(107, 198, 211);
     bottom: 0px;
-    color: #3b7e87;
+    color: rgb(18, 58, 63);
     height: 80px;
     padding-top: 0.5%;
     position: fixed;
@@ -133,6 +133,7 @@ select {
     margin: 0 auto;
     max-width: 500px;
     padding: 3%;
+    padding-bottom: 15%;
     width: 94%;
 
     text-transform: uppercase;
@@ -179,7 +180,7 @@ table {
   }
 
   tr:hover {
-    background-color: #ceebee;
+    background-color: white;
     color: rgb(103, 34, 11); 
   }
   

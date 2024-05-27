@@ -105,7 +105,7 @@ class Administrator implements AdminInterface
             }
         } catch (\Exception $e) {
             $dbFeedback = $e->getMessage();
-            var_dump($dbFeedback);
+            // var_dump($dbFeedback);
                 return false;
         }
         return $dbFeedback;

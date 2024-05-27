@@ -47,14 +47,13 @@ if (isset($_POST['add'])) {
 
     $res = $admin->add();
 
-    // var_dump($res);
-
     if ($res) {
         $dbFeedback = 'Success';
+        header('Location: list');
+
     }
     if (!$res) {
         $dbFeedback = 'Some error - check for 
         duplicates / unregistered city / other error';
     }
-
 }

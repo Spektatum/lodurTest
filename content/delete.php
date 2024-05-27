@@ -15,7 +15,9 @@
 
  use Lodur\database as theDb;
 
- $data = "<div class='form'>
+ $data = "
+          <h1> Delete </h1>
+          <div class='form'>
           <form method='post' class='form1'>
             <input type='hidden' id='delete' name='delete' value='delete'> <br>
             <label for='name'> The Name </label> <br>
@@ -31,6 +33,8 @@ if (isset($_POST['delete'])) {
 
     if ($res) {
         $dbFeedback = 'Deleted all found';
+        header('Location: list');
+
     }
     if (!$res) {
         $dbFeedback = 'Some error - check for duplicates 

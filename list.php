@@ -22,9 +22,6 @@ require __DIR__ . "/autoloader/autoloader.php";
 // Require configuration 
 require __DIR__ . "/config/config.php";
 
-// Include the navigation
-include "content/nav.php";
-
 // Include the content 
 include "content/list.php";
 

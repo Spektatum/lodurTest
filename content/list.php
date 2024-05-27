@@ -18,9 +18,9 @@ namespace Lodur\Base;
 use Lodur\database as theDb;
 
 // List the 
+
 $users = $admin->list(false);
 $deleted = $admin->list(true);
-
 
 $list = "<div class='result'>
             <h1> Listed users </h1>

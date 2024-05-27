@@ -22,14 +22,6 @@
 // Require configuration 
 require __DIR__ . "/config/config.php";
 
-// Autoloading 
-// - for enabling namespace & access to objectoriented functionality 
-//require __DIR__ . "/vendor/autoload.php";
-
-
-// Include the navigation
-include "content/nav.php";
-
 // Include the content for adding
 include "content/add.php";
 

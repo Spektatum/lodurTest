@@ -1,6 +1,7 @@
-vendor 
+depr 
+build
 .phpunit.xml
 .phpunit.result.cache
 test
-build
-upload.bash
+.git
+config/config.php

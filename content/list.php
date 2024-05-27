@@ -9,7 +9,6 @@
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT 
  * @link     https://www.spektatum.com
- *
  **/
 
 // List all content

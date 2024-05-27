@@ -1,44 +1,42 @@
-
 <?php
 /**
- * Autoloader for classes.
+ *   Config file for php unit tests
+ *   php version 7
  *
- * @param string $class the name of the class.
- */
+ * @category Test
+ * @package  Lodur
+ * @author   Ylva Sjölin <yso@spektatum.com>
+ * @license  MIT https://www.spektatum.com
+ * @link     https://www.spektatum.com
+ **/
 
- var_dump('test');
-spl_autoload_register(function ($class) {
-    echo "$class<br>";
-    $path = "src/{$class}.php";
-    if (is_file($path)) {
-        include($path);
-    }
-
-});
-
+ 
 /**
- * Autoloader for classes with namespace, exclude the vendor name.
+ * Autoloader for classes with namespace
+ * Excludes the vendor name = first part of namespace 
+ * Then locates the class file in the decided location (src)
+ * 
+ * This enables you to use namespace & load and start objects
+ * in different parts of the code. 
+ * https://www.php.net/manual/en/function.spl-autoload-register.php
+ * https://www.php.net/manual/en/language.namespaces.definition
  *
  * @param string $class the name of the class.
  */
 spl_autoload_register(function ($class) {
-    echo "$class<br>";
+    echo "type2: $class<br>";
 
-    // Base directory for the namespace prefix
-    $baseDir = __DIR__ . "/src/";
+    // Here is the source for the object oriented programming
+    $baseDir = __DIR__ . "/../src";
 
-    // Remove the vendor-part
-    $offset = strpos($class, "\\") + 1;
+    // Here the main vendor name is excluded to find the files
+    $dir = str_replace(NAMESPACE1, '', $class);
 
-    // Get the relative class name
-    $relativeClass = substr($class, $offset);
-
-    // Replace the namespace prefix with the base directory, replace namespace
-    // separators with directory separators in the relative class name, append
-    // with .php
-    $file = $baseDir . str_replace("\\", "/", $relativeClass) . '.php';
+    // And the file direction is completed
+    $file = $baseDir . str_replace("\\", "/", $dir) . '.php';
 
     // If the file exists, require it
+    // and you can instantiate the object directly in the code
     if (file_exists($file)) {
         require $file;
     }

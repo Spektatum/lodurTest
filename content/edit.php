@@ -9,7 +9,6 @@
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT 
  * @link     https://www.spektatum.com
- *
  **/
 
 // List all content
@@ -26,7 +25,8 @@ $data = "<div class='form'>
                     <label for='name'> The Name </label> <br>
                     <input type='text' id='name' name='name' value=''> 
                     <br>
-                <button type='submit' class='btn1' name='submit' value='submit'>Submit</button>
+                <button type='submit' class='btn1' 
+                name='submit' value='submit'>Submit</button>
             </form>
         </div> ";
 
@@ -47,7 +47,8 @@ if (isset($_POST['edit2'])) {
         $dbFeedback = 'Success';
     }
     if (!$res) {
-        $dbFeedback = 'Some error - check for duplicates / unregistered city / other error';
+        $dbFeedback = 'Some error - check for 
+        duplicates / unregistered city / other error';
     }
 
 }

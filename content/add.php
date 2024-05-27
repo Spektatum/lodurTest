@@ -9,7 +9,6 @@
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT 
  * @link     https://www.spektatum.com
- *
  **/
 
  namespace Lodur\Base;
@@ -37,7 +36,8 @@
                     <label for='city'> The city </label> <br>
                     $menu<br>
                     <br>
-                <button type='submit' class='btn1' name='submit' value='submit'>Submit</button>
+                <button type='submit' class='btn1' 
+                name='submit' value='submit'>Submit</button>
             </form>
         </div> ";
 
@@ -51,7 +51,8 @@ if (isset($_POST['add'])) {
         $dbFeedback = 'Success';
     }
     if (!$res) {
-        $dbFeedback = 'Some error - check for duplicates / unregistered city / other error';
+        $dbFeedback = 'Some error - check for 
+        duplicates / unregistered city / other error';
     }
 
 }

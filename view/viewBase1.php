@@ -8,7 +8,6 @@
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT 
  * @link     https://www.spektatum.com
- *
  **/
 ?>
 
@@ -18,7 +17,8 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="style/style.css">
-    <meta property="og:image" content="https://www.spektatum.com/img/stamp/stamp2.jpg">
+    <meta property="og:image" 
+          content="https://www.spektatum.com/img/stamp/stamp2.jpg">
     <meta name="description" content="Lodur Test">
     <link rel="icon" href="img/icon.jpg" type="image/jpg">
 
@@ -47,9 +47,9 @@
                 echo $data;
             } ?>
 
-        <!-- Database feedback -->
-        <?php if (isset($dbFeedback)) {
-                echo $dbFeedback;
+            <!-- Database feedback -->
+            <?php if (isset($dbFeedback)) {
+                    echo $dbFeedback;
             } ?>
         </div>
 

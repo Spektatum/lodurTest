@@ -9,7 +9,6 @@
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT 
  * @link     https://www.spektatum.com
- *
  **/
 
  namespace Lodur\Base;
@@ -21,7 +20,8 @@
             <input type='hidden' id='delete' name='delete' value='delete'> <br>
             <label for='name'> The Name </label> <br>
             <input type='text' id='name' name='name' value=''> <br>
-          <button type='submit' class='btn1' name='submit' value='submit'>Submit</button>
+          <button type='submit' class='btn1' 
+          name='submit' value='submit'>Submit</button>
           </form>
           </div> ";
 
@@ -33,6 +33,7 @@ if (isset($_POST['delete'])) {
         $dbFeedback = 'Deleted all found';
     }
     if (!$res) {
-        $dbFeedback = 'Some error - check for duplicates / unregistered city / other error';
+        $dbFeedback = 'Some error - check for duplicates 
+        / unregistered city / other error';
     }
 }

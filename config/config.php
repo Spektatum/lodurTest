@@ -1,21 +1,19 @@
 <?php
 /**
- *   Config file for php unit tests
+ *   Config file 
  *   php version 7
  *
- * @category Test
- * @package  PhpBase
+ * @category Configuration
+ * @package  Lodur
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT https://www.spektatum.com
  * @link     https://www.spektatum.com
  **/
 
- 
 namespace Lodur\Base;
 
 use Lodur\database as theDb;
 use Lodur\admin as admin;
-
 
 require __DIR__ . "/../vendor/autoload.php";
 

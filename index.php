@@ -11,8 +11,8 @@
  *
  **/
 
- namespace Lodur\Base;
- define('NAMESPACE1', 'Lodur');
+ namespace Yso\Base;
+ define('NAMESPACE1', 'Yso');
 
  // AUTOLOADING
  // - for enabling namespace & access to objectoriented functionality 
@@ -26,7 +26,7 @@ require __DIR__ . "/config/config.php";
 include "content/add.php";
 
 // Include the version
-$version = 'LodurTest1';
+$version = 'Lodur Test Sample';
 
 // Include the view 
 include 'view/viewBase1.php'; 

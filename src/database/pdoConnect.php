@@ -5,13 +5,13 @@
  *  php version 8
  *
  * @category DbConnection
- * @package  LODUR
+ * @package  Yso
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT https://www.spektatum.com
  * @link     https://www.spektatum.com
  **/
 
-namespace Lodur\database;
+namespace Yso\database;
 use PDO;
 use Exception;
 use PDOException;
@@ -24,7 +24,7 @@ use PDOException;
  *  PDOconnect
  *
  * @category PDOconnect
- * @package  LODUR
+ * @package  Yso
  * @author   Ylva Sjölin <yso@spektatum.com>
  * @license  MIT yso@spektatum.com
  * @link     MIT yso@spektatum.com

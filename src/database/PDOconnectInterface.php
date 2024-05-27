@@ -11,7 +11,7 @@
  * @link     https://www.spektatum.com
  **/
 
-namespace Lodur\database;
+namespace Yso\database;
 use PDO;
 use Exception;
 use PDOException;

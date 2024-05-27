@@ -13,9 +13,9 @@
 
 // List all content
 
-namespace Lodur\Base;
+namespace Yso\Base;
 
-use Lodur\database as theDb;
+use Yso\database as theDb;
 
 // List the 
 

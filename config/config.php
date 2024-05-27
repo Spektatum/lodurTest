@@ -10,14 +10,20 @@
  * @link     https://www.spektatum.com
  **/
 
-namespace Lodur\Base;
+namespace Yso\Base;
 
-use Lodur\database as theDb;
-use Lodur\admin as admin;
+use Yso\database as theDb;
+use Yso\admin as admin;
 
 // AUTOLOADING
 // - for enabling namespace & access to objectoriented functionality 
 require __DIR__ . "/../autoloader/autoloader.php";
+
+// Error handling
+ini_set("display_errors", 1);     
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 // DATABASE CONNECTION
 // Set host and database

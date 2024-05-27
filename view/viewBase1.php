@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="style/style.css?v=4">
     
     <meta property="og:image" 
-          content="https://www.spektatum.com/img/stamp/stamp2.jpg">
+          content="img/space/space-500.jpg">
     <meta name="description" content="Lodur Test">
     <link rel="icon" href="img/space/space-150.jpg" type="image/jpg">
 
@@ -36,9 +36,6 @@
         <div class='header'>
             <?php if (isset($header)) {
                 echo $header;
-            } ?>
-            <?php if (isset($nav)) {
-                echo $nav;
             } ?>
                 <a href='add'> ADD </a> 
                 <a href='edit'> EDIT </a> 

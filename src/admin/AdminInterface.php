@@ -14,9 +14,9 @@
  **/
 
 
-namespace Lodur\admin;
+namespace Yso\admin;
 
-use Lodur\database as database;
+use Yso\database as database;
 
 use PDO;
 use Exception;

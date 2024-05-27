@@ -11,8 +11,8 @@
  *
  **/
 
- namespace Lodur\Base;
- define('NAMESPACE1', 'Lodur');
+ namespace Yso\Base;
+ define('NAMESPACE1', 'Yso');
 
  // AUTOLOADING
  // - for enabling namespace & access to objectoriented functionality 
@@ -26,5 +26,7 @@ require __DIR__ . "/config/config.php";
 $usersXML = $admin->list(false, true);
 
 header('Content-type: text/xml');
+
+ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 echo $usersXML;

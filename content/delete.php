@@ -11,9 +11,9 @@
  * @link     https://www.spektatum.com
  **/
 
- namespace Lodur\Base;
+ namespace Yso\Base;
 
- use Lodur\database as theDb;
+ use Yso\database as theDb;
 
  $data = "
           <h1> Delete </h1>

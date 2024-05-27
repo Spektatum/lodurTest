@@ -1,6 +1,8 @@
 <?php
 /**
- *  Sample controller
+ *  Administration class
+ *  Handles CRUD functionality 
+ *  Create Read Update Delete
  *
  *  Php version 8
  *
@@ -19,14 +21,16 @@ use PDO;
 use Exception;
 use PDOException;
 
+ // Code validation update:
  // Disabling phpcs warning for private vars / methods with underscore
  // phpcs:disable PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore
- // phpcs:disable PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore
 
 /**
- *  Sample
- *  php version 8
- *  The button controller
+ *  Administration class
+ *  Handles CRUD functionality 
+ *  Create Read Update Delete
+ *
+ *  Php version 8
  *
  * @category Admin
  * @package  LODUR
@@ -76,7 +80,8 @@ class Administrator implements AdminInterface
     {
         $var = isset($this->postData[$variable]) ? $this->postData[$variable] : null;
         if ($var) {
-            $var = htmlentities(strip_tags(trim($var)));
+            $var = htmlspecialchars(strip_tags(trim($var)), ENT_QUOTES);
+            // $var = htmlentities(strip_tags(trim($var)));
         }
         return $var;
     }
@@ -237,7 +242,7 @@ class Administrator implements AdminInterface
     }
 
     /**
-     * Delete 
+     * Delete (soft)
      * 
      * SOFT DELETES from the database (marks as deleted)
      * 
@@ -254,7 +259,26 @@ class Administrator implements AdminInterface
 
         // Return the results
         return $this->dbConnect($sql, $params);
+    }
 
+    /**
+     * Delete (hard)
+     * 
+     * Removes it from the database
+     * 
+     * @return string $dbFeedback : feedback from the database
+     */
+    public function hardDelete()
+    {    
+        // Control the incoming parameters 
+        $name = $this->getPost('name');
+
+        // Create the query
+        $sql = "DELETE FROM TheUsers WHERE name = ? ;";
+        $params = [$name];
+
+        // Return the results
+        return $this->dbConnect($sql, $params);
     }
 
     /**

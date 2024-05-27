@@ -62,19 +62,9 @@ class PDOconnect implements PDOconnectInterface
         }
 
         // // Set up for phpunit test
-        $this->test['prepare'] = false;
-        $this->test['execute'] = false;
-        $this->test['fetchAll'] = false;
-
-        // if ($test) {
-        //     $this->test = $test;
-        // }
-
-        // Save connection details
-        // $this->dbDetails['host']  = $host;
-        // $this->dbDetails['dbName'] = $dbName;
-        // $this->dbDetails['user'] = $user;
-        // $this->dbDetails['password'] = $password;
+        // $this->test['prepare'] = false;
+        // $this->test['execute'] = false;
+        // $this->test['fetchAll'] = false;
 
         // Connect to database
         $dsn = "mysql:dbname=$dbName;host=$host";
@@ -120,13 +110,13 @@ class PDOconnect implements PDOconnectInterface
         }
 
         // prepare
-        $statementPDO = $this->prepare($sql, $param);
+        $statementPDO = $this->prepare($sql);
 
         // execute
-        $statementPDO = $this->execute($statementPDO, $sql, $param);
+        $statementPDO = $this->execute($statementPDO, $param);
 
         // fetch all
-        $res = $this->fetchAll($statementPDO, $param, $sql);
+        $res = $this->fetchAll($statementPDO);
 
         return $res;
     }
@@ -143,16 +133,11 @@ class PDOconnect implements PDOconnectInterface
      *
      * @return object $statementPDO;
      */
-    private function prepare($sql, $param)
+    private function prepare($sql)
     {
         // prepare
-        $statementPDO = $this->dbPDO->prepare($sql);
-        if (!$statementPDO || $this->test['prepare'] == true) {
-            // var_dump($param, $sql);
-            // var_dump($statementPDO->errorInfo()[2]);
-            return [false, $sql, $param];
-        }
-        return $statementPDO;
+       return $this->dbPDO->prepare($sql);
+
     }
 
 
@@ -168,15 +153,11 @@ class PDOconnect implements PDOconnectInterface
      *
      * @return object $statementPDO;
      */
-    private function execute($statementPDO, $sql, $params)
+    private function execute($statementPDO, $params)
     {
         // execute
         $status = $statementPDO->execute($params);
-        if (!$status || $this->test['execute'] == true) {
-            // var_dump($param, $sql);
-            // var_dump($statementPDO->errorInfo()[2]);
-            return [false, $sql, $params];
-        }
+
         return $statementPDO;
     }
 
@@ -193,15 +174,10 @@ class PDOconnect implements PDOconnectInterface
      *
      * @return object $statementPDO;
      */
-    private function fetchAll($statementPDO, $param, $sql)
+    private function fetchAll($statementPDO)
     {
         // fetch all
-        $res = $statementPDO->fetchAll();
-        if ($res === false || $this->test['fetchAll'] == true) {
-            // var_dump($param, $sql);
-            // var_dump($statementPDO->errorInfo()[2]);
-            return [false, $sql, $param];
-        }
-        return $res;
+        return $statementPDO->fetchAll();
+
     }
 }

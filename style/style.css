@@ -1,0 +1,133 @@
+
+@font-face {
+    font-family: thistFont;
+    src: url('fonts/Lato/Lato-Black.ttf');
+    font-display: swap;
+}
+  
+@font-face {
+    font-family: thisFont;
+    src: url('fonts/Lato/Lato-Black.ttf');
+    font-weight: bold;
+    font-display: swap;
+}
+
+html {
+    background-color:rgb(188, 227, 232);
+    font-family: thisFont;
+}
+
+h1 {
+    color: rgb(39, 108, 117);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.mainWrapper {
+    background-color: rgb(167, 229, 238);
+    padding-top: 100px;
+}
+
+.header {
+    background-color: rgb(107, 198, 211);
+    color: white;
+    height: 80px;
+    min-width: 250px;
+    padding-top: 1%;
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    width: 100%;
+}
+
+.header a {
+    text-decoration: none;
+    color: rgb(39, 108, 117);
+    font-size: 1.2em;
+    padding: 0.5%;
+
+}
+
+.form {
+    background-color: #87dde9;
+    border-radius: 24px;
+    color: #276c75;
+    font-size: 1.1em;
+    margin: 0 auto;
+    max-width: 500px;
+    min-width: 250px;
+    padding: 3%;
+    width: 94%;
+}
+
+.footer {
+    background-color: rgb(107, 198, 211);
+    bottom: 0px;
+    color: #3b7e87;
+    height: 80px;
+    padding-top: 0.5%;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+    background-color:#a4e7e9;
+}
+
+input[type=text] {
+    background-color: #a4e7e9;
+    border-radius: 24px;
+    box-sizing: border-box;
+    color: black;
+    font-size: 1.1em;
+    margin: 8px 0;
+    /* max-width: 350px; */
+    padding: 12px 20px;
+    width: 100%;
+}
+
+select {
+    background-color:  #a4e7e9;
+    border-radius: 24px;
+    box-sizing: border-box;
+    color: black;
+    margin: 8px 0;
+    /* max-width: 350px; */
+    padding: 12px 20px;
+    width: 100%;
+}
+
+.btn1 {
+    background-color: rgb(107, 198, 211);
+    border-color: white;
+    border-radius: 24px;
+    /* border-radius: 10px; */
+    color: color;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.section1 {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.feedback {
+    /* background-color: #87dde9; */
+    border-radius: 24px;
+    color: black;
+    max-width: 500px;
+    padding: 3%;
+    width: 94%;
+}

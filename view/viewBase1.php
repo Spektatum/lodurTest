@@ -16,14 +16,15 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css?v=2">
+    
     <meta property="og:image" 
           content="https://www.spektatum.com/img/stamp/stamp2.jpg">
     <meta name="description" content="Lodur Test">
     <link rel="icon" href="img/icon.jpg" type="image/jpg">
 
     <!-- Preload for faster perfomance-->
-    <link rel="preload" href="style/style.css" as="style">
+    <link rel="preload" href="style/style.css?v=2" as="style">
     <title>  LODUR test program </title>
 
 </head> 
@@ -48,9 +49,11 @@
             } ?>
 
             <!-- Database feedback -->
+            <div class='feedback'>
             <?php if (isset($dbFeedback)) {
                     echo $dbFeedback;
             } ?>
+            </div>
         </div>
 
         <!-- Section 2 for display content -->

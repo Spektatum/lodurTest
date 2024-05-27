@@ -19,7 +19,6 @@ VALUES
     ('Stockholm', 'Sweden'),
     ('Simrishamn', 'Sweden')
 	;
-    
 
 INSERT INTO TheUsers
 (name, firstname, email, street, zipcode, city)

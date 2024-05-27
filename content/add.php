@@ -20,7 +20,9 @@
 
  $dbFeedback = '';
 
- $data = "<div class='form'>
+ $data = "
+        <h1> Add new </h1>
+        <div class='form'>
                 <form method='post' class='form1'>
                     <input type='hidden' id='add' name='add' value='add'> <br>
                     <label for='name'> The Name </label> <br>

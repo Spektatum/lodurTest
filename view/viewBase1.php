@@ -48,18 +48,19 @@
                 echo $data;
             } ?>
 
-            <!-- Database feedback -->
-            <div class='feedback'>
-            <?php if (isset($dbFeedback)) {
-                    echo $dbFeedback;
-            } ?>
-            </div>
         </div>
 
         <!-- Section 2 for display content -->
         <div class='section2'>
             <?php if (isset($list)) {
                 echo $list;
+            } ?>
+        </div>
+
+        <!-- Database feedback -->
+        <div class='feedback'>
+            <?php if (isset($dbFeedback)) {
+                    echo $dbFeedback;
             } ?>
         </div>
     

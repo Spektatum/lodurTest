@@ -22,7 +22,7 @@ $users = $admin->list(false);
 $deleted = $admin->list(true);
 
 
-$data = "<div class='result'>
+$list = "<div class='result'>
             <h1> Listed users </h1>
             $users 
 

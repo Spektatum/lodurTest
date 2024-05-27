@@ -1,0 +1,14 @@
+{
+    "name": "lodur/phpunit-test",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+            {
+                "name": "Ylva Sjölin",
+                "email": "yso@spektatum.com"
+            }
+    ],
+    "autoload": {
+        "psr-4": {"Lodur\\": "src/"}
+    }
+}

@@ -1,0 +1,13 @@
+RewriteEngine on
+
+# Login
+RewriteRule   ^add$    		    index.php  [NC]
+RewriteRule   ^add/$    		index.php  [NC]
+RewriteRule   ^edit$    		edit.php  [NC]
+RewriteRule   ^edit/$    		edit.php  [NC]
+RewriteRule   ^delete$    		delete.php  [NC]
+RewriteRule   ^delete/$    		delete.php  [NC]
+RewriteRule   ^list$    		list.php  [NC]
+RewriteRule   ^list/$    		list.php  [NC]
+RewriteRule   ^xml$    		    xml.php  [NC]
+RewriteRule   ^xml/$    		xml.php  [NC]

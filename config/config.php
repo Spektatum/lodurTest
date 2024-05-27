@@ -15,7 +15,9 @@ namespace Lodur\Base;
 use Lodur\database as theDb;
 use Lodur\admin as admin;
 
-require __DIR__ . "/../vendor/autoload.php";
+// AUTOLOADING
+// - for enabling namespace & access to objectoriented functionality 
+require __DIR__ . "/../autoloader/autoloader.php";
 
 // DATABASE CONNECTION
 // Set host and database

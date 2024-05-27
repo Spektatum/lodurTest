@@ -12,14 +12,21 @@
  **/
 
  namespace Lodur\Base;
+ define('NAMESPACE1', 'Lodur');
+
+ // AUTOLOADING
+ // - for enabling namespace & access to objectoriented functionality 
+ require __DIR__ . "/autoloader/autoloader.php";
 
 // CONFIGURATION
 // Require configuration 
 require __DIR__ . "/config/config.php";
 
+use utf8;
+
 // Autoloading 
 // - for enabling namespace & access to objectoriented functionality 
-require __DIR__ . "/vendor/autoload.php";
+// require __DIR__ . "/vendor/autoload.php";
 
 // Print and echo XML
 $usersXML = $admin->list(false, true);

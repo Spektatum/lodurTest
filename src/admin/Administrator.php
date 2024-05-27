@@ -171,7 +171,7 @@ class Administrator implements AdminInterface
                     </form>
                     </div> ";
         }
-        return $html;
+        return html_entity_decode($html);
     }
 
     
@@ -323,7 +323,7 @@ class Administrator implements AdminInterface
             }
             $xml .= "</users>";
         }
-        return $xml;
+        return html_entity_decode($xml);
     }
 
     /**

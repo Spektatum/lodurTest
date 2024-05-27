@@ -18,7 +18,7 @@
  // Get a drop down menu 
  $menu = $admin->cities();
 
- $dbFeedback = 'test';
+ $dbFeedback = '';
 
  $data = "<div class='form'>
                 <form method='post' class='form1'>

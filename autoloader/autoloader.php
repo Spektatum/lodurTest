@@ -24,7 +24,7 @@
  * @param string $class the name of the class.
  */
 spl_autoload_register(function ($class) {
-    echo "type2: $class<br>";
+    // echo "type2: $class<br>";
 
     // Here is the source for the object oriented programming
     $baseDir = __DIR__ . "/../src";

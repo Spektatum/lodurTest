@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="style/style.css?v=4">
     
     <meta property="og:image" 
-          content="img/space/space-500.jpg">
+          content="https://www.spektatum.com/img/stamp/stamp2.jpg">
     <meta name="description" content="Lodur Test">
-    <link rel="icon" href="img/space/space-150.jpg" type="image/jpg">
+    <link rel="icon" href="img/logo.png" type="image/jpg">
 
     <!-- Preload for faster perfomance-->
     <link rel="preload" href="style/style.css?v=4" as="style">

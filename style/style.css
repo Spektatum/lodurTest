@@ -33,6 +33,7 @@ h1 {
 
 .header {
     background-color: rgb(107, 198, 211);
+    border-bottom: black 2px solid;
     color: white;
     height: 80px;
     left: 0;
@@ -66,9 +67,10 @@ h1 {
 
 .footer {
     background-color: rgb(107, 198, 211);
+    border-top: black 2px solid;
     bottom: 0px;
     color: rgb(18, 58, 63);
-    height: 80px;
+    height: 40px;
     padding-top: 0.5%;
     position: fixed;
     text-align: center;
@@ -110,8 +112,8 @@ select {
     /* border-radius: 10px; */
     color: color;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 1.3em;
+    /* font-weight: bold; */
+    font-size: 1em;
     margin: 0 auto;
     max-width: 500px;
     width: 100%;
@@ -140,15 +142,6 @@ select {
     text-align: center;
 
 }
-
-/* table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 500px;
-    float: left;
-    background-color: #98d5dd;
-    font-weight: bold;
-} */
 
 table {
     border-collapse: collapse;

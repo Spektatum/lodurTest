@@ -19,6 +19,13 @@ use Yso\database as theDb;
 
 // List the 
 
+// Reload first if there was a database update
+if ($_POST) {
+
+    // Refresh
+    header("Location:list");
+}
+
 $users = $admin->list(false);
 $deleted = $admin->list(true);
 

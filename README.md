@@ -9,3 +9,4 @@ Test on the List page to see 'The database is set' below the tables.
 <h2> Program start in a browser</h2>
 Run in a browser with a server and database set up.
 Point to the index.php file to start. 
+Start to look at index.php & see how the program evolves.

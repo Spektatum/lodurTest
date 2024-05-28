@@ -42,7 +42,7 @@ CREATE TABLE TheUsers
     deleted boolean DEFAULT FALSE,
     	FOREIGN KEY (city) REFERENCES TheCities(name),
     PRIMARY KEY (name)
-)ENGINE INNODB
-CHARSET utf8
-COLLATE utf8_swedish_ci;
+) ENGINE INNODB
+  CHARSET utf8
+ COLLATE utf8_swedish_ci;
 ;

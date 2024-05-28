@@ -126,6 +126,10 @@ class Administrator implements AdminInterface
         $zipcode = $this->getPost('zipcode');
         $city = $this->getPost('city');
 
+        if (!$name) {
+            return false;
+        }
+
         $sql = "INSERT INTO TheUsers 
         (name, firstname, email, street, zipcode, city) VALUES (?, ?, ?, ?, ?, ?)";
 

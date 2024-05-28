@@ -33,6 +33,8 @@ if (isset($_POST['delete'])) {
 
     if ($res) {
         $dbFeedback = 'Deleted all found';
+
+        // Redirect & refresh
         header('Location: list');
 
     }

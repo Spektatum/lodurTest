@@ -49,6 +49,8 @@ if (isset($_POST['add'])) {
 
     if ($res) {
         $dbFeedback = 'Success';
+
+        // Redirect & refresh
         header('Location: list');
 
     }

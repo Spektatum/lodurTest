@@ -32,7 +32,7 @@ h1 {
 }
 
 .header {
-    background-color: rgb(107, 198, 211);
+    background-color: rgb(65, 136, 146);
     border-bottom: black 2px solid;
     color: white;
     height: 80px;
@@ -47,7 +47,7 @@ h1 {
 
 .header a {
     text-decoration: none;
-    color: rgb(18, 58, 63);
+    color: rgb(107, 198, 211);
     font-size: 1.2em;
     padding: 0.5%;
 
@@ -66,10 +66,10 @@ h1 {
 }
 
 .footer {
-    background-color: rgb(107, 198, 211);
+    background-color: rgb(65, 136, 146);
     border-top: black 2px solid;
     bottom: 0px;
-    color: rgb(18, 58, 63);
+    color: white;
     height: 40px;
     padding-top: 0.5%;
     position: fixed;

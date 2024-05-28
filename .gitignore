@@ -4,3 +4,4 @@ vendor
 test
 build
 upload.bash
+phpunit.bash

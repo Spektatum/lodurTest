@@ -5,3 +5,4 @@ test
 build
 upload.bash
 phpunit.bash
+exclude-list.txt

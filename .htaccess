@@ -2,15 +2,20 @@ RewriteEngine on
 
 # Login
 RewriteRule   ^add$    		    index.php  [NC]
-RewriteRule   ^add/$    		index.php  [NC]
 RewriteRule   ^edit$    		edit.php  [NC]
-RewriteRule   ^edit/$    		edit.php  [NC]
 RewriteRule   ^delete$    		delete.php  [NC]
-RewriteRule   ^delete/$    		delete.php  [NC]
 RewriteRule   ^list$    		list.php  [NC]
-RewriteRule   ^list/$    		list.php  [NC]
 RewriteRule   ^xml$    		    xml.php  [NC]
-RewriteRule   ^xml/$    		xml.php  [NC]
+RewriteRule   ^reload$    		reload.php  [NC]
+RewriteRule   ^list2$    		list.php?reload=true [NC]
+
+
+
+# The error pages
+# Redirection of the error pages
+ErrorDocument 404  error.php
+ErrorDocument 403  error.php
+ErrorDocument 400  error.php
 
 # Security
     Header add Content-Security-Policy "default-src 'self' ; style-src 'self'; font-src 'self'; object-src 'self'; "
@@ -20,3 +25,7 @@ RewriteRule   ^xml/$    		xml.php  [NC]
     	 Header always append X-Frame-Options SAMEORIGIN
     	 Header set X-Content-Type-Options nosniff
    </IfModule>
+
+#Header add Cache-Control: max-age=31536000;
+
+#Header add Strict-Transport-Security: max-age=63072000;

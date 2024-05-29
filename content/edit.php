@@ -47,6 +47,8 @@ if (isset($_POST['edit2'])) {
 
     if ($res) {
         $dbFeedback = 'Success';
+
+        // Redirect & refresh
         header('Location: list');
     }
     if (!$res) {

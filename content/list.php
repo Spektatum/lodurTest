@@ -18,21 +18,31 @@ namespace Yso\Base;
 use Yso\database as theDb;
 
 // List the 
-
-// Reload first if there was a database update
-if ($_POST) {
-
-    // Refresh
-    header("Location:list");
-}
-
 $users = $admin->list(false);
 $deleted = $admin->list(true);
 
-$list = "<div class='result'>
-            <h1> Listed users </h1>
-            $users 
+// XML button 
+$xml = "<form action='xml.php' method ='post' target='_blank'>
+            <input type='submit' class='btn2' value='XML'>
+        </form>
+        ";
+// JSON btn
+$json = "<form action='json.php' method ='post' target='_blank'>
+            <input type='submit' class='btn2' value='JSON'>
+        </form>
+        ";
 
-            <h2> Deleted users </h2>
+$list = "<div class='result'>
+            
+            <h1> Listed users </h1>
+            $users <br>
+
+            <h1> Print XML </h1>
+            $xml <br>
+
+            <h1> Print JSON </h1>
+            $json <br>
+
+            <h1> Deleted users </h1>
             $deleted
         </div> ";

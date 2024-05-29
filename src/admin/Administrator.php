@@ -355,6 +355,34 @@ class Administrator implements AdminInterface
     }
 
     /**
+     * Print JSON syntax
+     * 
+     * @param object $users : users for printing as object
+     * 
+     * @return string $json : prints json of users
+     */
+    private function printJSON($users)
+    {
+        $json = false;
+        if (is_array($users)) {
+            $json = '{"users":[';
+            
+            foreach ($users as $user) {
+                $json .= '
+                          {"name":"'. $user->name.'",
+                           "firstname":"'. $user->firstname.'",
+                           "email":"'. $user->email.'",
+                           "street":"'. $user->street.'",
+                           "zipcode":"'. $user->zipcode.'",
+                           "city":"'. $user->city.'"},';
+            }
+            $json = rtrim($json, ',');
+            $json .= "]}";
+        }
+        return html_entity_decode($json);
+    }
+
+    /**
      * List the users
      * Print html of the content
      * 
@@ -362,7 +390,7 @@ class Administrator implements AdminInterface
      * 
      * @return string $table   : prints html table of content
      */
-    public function list($listDeleted, $xml = null)
+    public function list($listDeleted, $xml = null, $json = null)
     {    
         if (is_bool($listDeleted)) {
 
@@ -374,11 +402,14 @@ class Administrator implements AdminInterface
             $result = $this->dbConnect($sql, $param);
 
             // Print & return the form 
-            if (!$xml && $result) {
+            if (!$xml && !$json && $result) {
                 return $this->printTable($result);
             }
             if ($xml && $result) {
                 return $this->printXML($result);
+            }
+            if ($json && $result) {
+                return $this->printJSON($result);
             }
         }
     }

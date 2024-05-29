@@ -32,10 +32,10 @@ h1 {
 }
 
 .header {
-    background-color: rgb(65, 136, 146);
+    background-color: rgb(107, 198, 211);
     border-bottom: black 2px solid;
     color: white;
-    height: 80px;
+    height: 40px;
     left: 0;
     min-width: 250px;
     padding-top: 1%;
@@ -47,10 +47,16 @@ h1 {
 
 .header a {
     text-decoration: none;
-    color: rgb(107, 198, 211);
+    color: rgb(18, 58, 63);
     font-size: 1.2em;
     padding: 0.5%;
+}
 
+.header p {
+  text-decoration: none;
+  color: rgb(18, 58, 63);
+  font-size: 1.2em;
+  padding: 0.5%;
 }
 
 .form {
@@ -116,6 +122,23 @@ select {
     font-size: 1em;
     margin: 0 auto;
     max-width: 500px;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btn2 {
+    background-color:rgb(255, 234, 170);
+    border-color: white;
+    border-radius: 24px;
+    /* border-radius: 10px; */
+    color: color;
+    cursor: pointer;
+    /* font-weight: bold; */
+    font-size: 1em;
+    margin: 0 auto;
+    /* max-width: 500px; */
     width: 100%;
     padding: 8px;
     text-align: center;

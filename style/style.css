@@ -19,6 +19,11 @@ html {
     font-family:sans-serif;
 }
 
+body {
+    overflow-y: scroll;
+
+}
+
 h1 {
     color: rgb(39, 108, 117);
     text-align: center;

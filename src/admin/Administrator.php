@@ -335,21 +335,21 @@ class Administrator implements AdminInterface
     {
         $xml = false;
         if (is_array($users)) {
-            $xml = "<users>";
+            $xml = "<addresses>";
 
             foreach ($users as $user) {
                 $xml .= "
-                        <user>
+                        <address>
                             <name> $user->name </name>
                             <firstname> $user->firstname </firstname>
                             <email> $user->email </email>
                             <street> $user->street </street>
                             <zipcode> $user->zipcode </zipcode>
                             <city> $user->city </city>
-                        </user>
+                        </address>
                         ";
             }
-            $xml .= "</users>";
+            $xml .= "</addresses>";
         }
         return html_entity_decode($xml);
     }
@@ -365,7 +365,7 @@ class Administrator implements AdminInterface
     {
         $json = false;
         if (is_array($users)) {
-            $json = '{"users":[';
+            $json = '{"addresses":[';
             
             foreach ($users as $user) {
                 $json .= '

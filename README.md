@@ -27,7 +27,7 @@ Update here: // DATABASE CONNECTION (line 28)
 <b>$user</b> : set the user 
 <b>$pass</b> : set the password
 
-<h2>Program start in a browser</b>
+<h2>Program start in a browser</h2>
 Run in a browser with a server and database set up. 
 Point to the index.php file to start.  
 You can follow the program flow from there.

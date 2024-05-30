@@ -80,6 +80,7 @@ h1 {
     background-color: rgb(65, 136, 146);
     border-top: black 2px solid;
     bottom: 0px;
+    left: 0px;
     color: white;
     height: 40px;
     padding-top: 0.5%;
@@ -152,7 +153,7 @@ select {
 
 .section1 {
     width: 100%;
-    max-width: 500px;
+    /* max-width: 500px; */
     margin: 0 auto;
 }
 

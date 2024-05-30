@@ -41,6 +41,7 @@ Class Router implements RouterInterface
 {
     private $database;      // The database object 
     private $administrator; // The administrator object
+    private $printDisplay;  // The administrator object
     private $storageTemp;   // The stored data (from form / $_POST)
     private $storageTemp2;  // The stored data (from form / $_GET)
     private $staticContent; // An array with static content
@@ -50,20 +51,20 @@ Class Router implements RouterInterface
      * 
      * @param object $database : the database object
      * @param object $admin    : the admin object
+     * @param object $print    : the print display object
      * @param object $post     : the $_POST data (form / AJAX messages)
-     * @param array  $content  : the static content
      */
     public function __construct(
         database\PDOconnectInterface $database,
         admin\AdminInterface $admin,
+        admin\PrintDisplay $print,
         array $post,
-        array $content = [],
     ) {
         // Insert the object properties
         $this->database = $database;
         $this->administrator = $admin;
+        $this->printDisplay = $print;
         $this->storageTemp = $this->sanitize($post);
-        $this->staticContent = $content;
     }
         
     /**
@@ -140,7 +141,7 @@ Class Router implements RouterInterface
             };
 
             // Form data
-            return $this->administrator->printFormAdd();
+            return $this->printDisplay->printFormAdd();
             
             break;
             
@@ -150,10 +151,11 @@ Class Router implements RouterInterface
             // Check storageTemp for data
             if (isset($this->storageTemp['edit'])) {
 
-                return $this->administrator->edit();
+                return $this->printDisplay->edit();
 
             };
 
+            // Update the database
             if (isset($this->storageTemp['edit2'])) {
 
                 return $this->administrator->edit2();
@@ -161,7 +163,7 @@ Class Router implements RouterInterface
             };
 
             // Form data
-            return $this->administrator->printEditForm();
+            return $this->printDisplay->printEditForm();
             
             break;
 
@@ -176,7 +178,7 @@ Class Router implements RouterInterface
             };
 
             // Form data
-            return $this->administrator->printDeleteForm();
+            return $this->printDisplay->printDeleteForm();
             
             break;
 
@@ -184,14 +186,31 @@ Class Router implements RouterInterface
         case "lists":
 
             // List results
-            return $this->administrator->printLists();
+            return $this->printDisplay->printLists();
             
             break;
+
+
+        case "xml":
+
+            // List results
+            return $this->printDisplay->list(false, true);
+            
+            break;
+
+
+        case "json":
+
+            // List results
+            return $this->printDisplay->list(false, false, true);
+            
+            break;
+
 
         default:
 
             // List results
-            return $this->administrator->printLists();
+            return $this->printDisplay->printLists();
     
             break;
         
@@ -200,26 +219,52 @@ Class Router implements RouterInterface
 
     /**
      * Get route
-     * Calls the read method with a route
-     * and returns the route data
-     * so 'list' returns the lists from the database
+     * Get the data for the current active route.
+     * Gets the data from the router.
+     * So route 'list' returns the lists from the database.
      * 
      * @param string $route : the route for data return
      * 
      * @return mixed $data : returns the data
      */
     public function getRoute($route)
-    {
+    {   
         if ($this->storageTemp2) {
 
             if (isset($this->storageTemp2[$route])) {
-                return $this->read($this->storageTemp2[$route]);
+                $routeVal = $this->storageTemp2[$route];
+                return $this->read($routeVal);
             }
 
             if (!isset($this->storageTemp2[$route])) {
                 return false;
             }
         }
-        return false;
+        // If no route, set default
+        return $this->read('');
+    }
+
+    /**
+     * Check route
+     * See what is set in the temporal storage ($_GET)
+     * 
+     * @param string $route : the route for data return
+     * 
+     * @return mixed $data : returns the data
+     */
+    public function checkRoute($route)
+    {   
+        if ($this->storageTemp2) {
+
+            if (isset($this->storageTemp2[$route])) {
+                return $this->storageTemp2[$route];
+            }
+
+            if (!isset($this->storageTemp2[$route])) {
+                return false;
+            }
+        }
+        // If no route, set default
+        return $this->read('');
     }
 }

@@ -1,21 +1,22 @@
 RewriteEngine on
 
 # Login
-RewriteRule   ^add$    		    index.php  [NC]
-RewriteRule   ^edit$    		edit.php  [NC]
-RewriteRule   ^delete$    		delete.php  [NC]
-RewriteRule   ^list$    		list.php  [NC]
-RewriteRule   ^xml$    		    xml.php  [NC]
-RewriteRule   ^reload$    		reload.php  [NC]
-RewriteRule   ^list2$    		list.php?reload=true [NC]
+RewriteRule   ^add$    		    index.php?route=add  [NC]
+RewriteRule   ^edit$    		index.php?route=edit  [NC]
+RewriteRule   ^delete$    		index.php?route=delete [NC]
+RewriteRule   ^list$    		index.php?route=list [NC]
+RewriteRule   ^xml$    		    index.php?route=xml  [NC]
+RewriteRule   ^json$    		index.php?route=json  [NC]
 
+RewriteRule   ^reload$    		reload.php  [NC]
 
 
 # The error pages
 # Redirection of the error pages
-ErrorDocument 404  error.php
-ErrorDocument 403  error.php
-ErrorDocument 400  error.php
+RewriteRule   ^error$         index.php?error=true  [NC]
+ErrorDocument 404  /techraSystems/workingOn/lodur/error
+ErrorDocument 403  /techraSystems/workingOn/lodur/error
+ErrorDocument 400  /techraSystems/workingOn/lodur/error
 
 # Security
     Header add Content-Security-Policy "default-src 'self' ; style-src 'self'; font-src 'self'; object-src 'self'; "

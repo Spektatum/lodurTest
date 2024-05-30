@@ -40,14 +40,16 @@ $database = new theDb\PDOconnect($host, $theDb, $user, $pass); // Basic db conne
 
 // Admin object
 $admin = new admin\Administrator($database);
+$printDisplay = new admin\PrintDisplay($database); 
 
 // Router object
-$router = new router\Router($database, $admin, $_POST);
+$router = new router\Router($database, $admin, $printDisplay, $_POST);
 
 // On every $_POST, set the data to the object
 if ($_POST) {
     $admin->setTempStorage1($_POST);
     $router->setTempStorage1($_POST);
+    $printDisplay->setTempStorage1($_POST);
 }
 
 if ($_GET) {

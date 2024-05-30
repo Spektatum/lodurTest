@@ -22,11 +22,28 @@
 // Require configuration 
 require __DIR__ . "/config/config.php";
 
+// DATA
 // Get the content from the router
-$data = $router->read('add');
+// $data = $router->read('add');
+$data = $router->getRoute('route');
+
+// Check route
+$thisRoute = $router->checkRoute('route');
 
 // Include the version
-$version = 'Lodur Test Sample';
+$version = 'Lodur Test Sample 1.2';
 
-// Include the view 
-include 'view/viewBase1.php';
+// VIEW
+// Include the view
+$view = "viewBase1.php";
+
+// Set the special view, if any
+if ($thisRoute == 'xml') {
+    $view = 'xml.php';
+}
+
+if ($thisRoute == 'json') {
+    $view = 'json.php';
+}
+
+include 'view/'.$view;

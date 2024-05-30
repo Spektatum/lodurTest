@@ -22,8 +22,8 @@ require __DIR__ . "/autoloader/autoloader.php";
 // Require configuration 
 require __DIR__ . "/config/config.php";
 
-// Include the content 
-include "content/delete.php";
+// Get the content from the router
+$data = $router->read('delete');
 
 // Include the version
 $version = 'Lodur Test Sample';

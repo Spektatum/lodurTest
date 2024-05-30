@@ -21,9 +21,10 @@ use PDO;
 use Exception;
 use PDOException;
 
- // Code validation update:
- // Disabling phpcs warning for private vars / methods with underscore
- // phpcs:disable PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore
+// Code validation update:
+// Disabling phpcs warning for private vars / methods with underscore
+// phpcs:disable PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore
+// phpcs:disable PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore
 
 /**
  *  Administration class
@@ -64,10 +65,11 @@ class Administrator implements AdminInterface
      * 
      * @return string $var : sanitized var
      */
-    public function setPost($postContent)
+    public function setTempStorage1($postContent)
     {
         $this->postData = $postContent;
     }
+
 
     /**
      * Extract & sanitize the post variable
@@ -136,7 +138,57 @@ class Administrator implements AdminInterface
         $params = [$name, $firstname, $email, $street, $zipcode, $city];
 
         // Get result & send feedback
-        return $this->dbConnect($sql, $params);
+        $result = $this->dbConnect($sql, $params);
+        // Feedback
+        if ($result) {
+            $dbFeedback = 'Success';
+        }
+
+        if (!$result) {
+            $dbFeedback = 'Some error - check for 
+                           duplicates / unregistered city / other error';
+        }
+        return $dbFeedback;
+    }
+
+    /**
+     * Print form with cities 
+     * 
+     * @return string $form : filled in formS
+     */
+    public function printFormAdd()
+    {   
+        // Load cities from database
+        $cities = $this->cities();
+        $html = "
+                <h1> Add new </h1>
+                <div class='form'>
+                        <form method='post' class='form1'>
+                            <input type='hidden' id='add' 
+                            name='add' value='add'> <br>
+                            <label for='name'> The Name </label> <br>
+                            <input type='text' id='name' name='name' value=''> <br>
+                            <label for='firstname'> Firstname </label> <br>
+                            <input type='text' id='firstname' 
+                            name='firstname' value=''><br>
+                            <label for='email'> The email </label> <br>
+                            <input type='text' id='email' name='email' value=''><br>
+                            <label for='street'> The street </label> <br>
+                            <input type='text' id='street' 
+                            name='street' value=''><br>
+                            <label for='zipcode'> The zip code </label> <br>
+                            <input type='text' id='zipcode' 
+                            name='zipcode' value=''><br>
+                            <label for='city'> The city </label> <br>
+                            $cities <br>
+                            <br>
+                        <button type='submit' class='btn1' 
+                        name='submit' value='submit'>Submit</button>
+                    </form>
+                </div> ";
+                
+        return html_entity_decode($html);
+        
     }
 
     /**
@@ -241,8 +293,65 @@ class Administrator implements AdminInterface
         $params = [$firstname, $email, $street, $zipcode, $city, $name];
 
         // Return the results
-        return $this->dbConnect($sql, $params);
+        $res = $this->dbConnect($sql, $params);
 
+        if ($res) {
+            $dbFeedback = 'Success';
+    
+        }
+
+        if (!$res) {
+            $dbFeedback = 'Some error - check for 
+            duplicates / unregistered city / other error';
+        }
+
+        return $dbFeedback;
+
+    }
+
+    /**
+     * Print edit
+     * 
+     * @return string $form : filled in formS
+     */
+    public function printEditForm()
+    {   
+        $html = "
+        <h1> Edit </h1>
+        <div class='form'>
+                <form method='post' class='form1'>
+                    <input type='hidden' id='edit' name='edit' value='edit'> <br>
+                    <label for='name'> The Name </label> <br>
+                    <input type='text' id='name' name='name' value=''> 
+                    <br>
+                <button type='submit' class='btn1' 
+                name='submit' value='submit'>Submit</button>
+                </form>
+        </div> ";
+                
+        return html_entity_decode($html);
+    }
+
+    /**
+     * Print delete form
+     * 
+     * @return string $form : filled in formS
+     */
+    public function printDeleteForm()
+    {   
+        $html = "
+                <h1> Delete </h1>
+                <div class='form'>
+                <form method='post' class='form1'>
+                <input type='hidden' id='delete' name='delete' value='delete'> <br>
+                <label for='name'> The Name </label> <br>
+                <input type='text' id='name' name='name' value=''> <br>
+                <button type='submit' class='btn1' 
+                name='submit' value='submit'>Submit</button>
+                </form>
+                </div> ";
+                
+        return html_entity_decode($html);
     }
 
     /**
@@ -262,7 +371,17 @@ class Administrator implements AdminInterface
         $params = [true, $name];
 
         // Return the results
-        return $this->dbConnect($sql, $params);
+        $res = $this->dbConnect($sql, $params);
+        if ($res) {
+            $dbFeedback = 'Deleted all found';
+        }
+
+        if (!$res) {
+            $dbFeedback = 'Some error - check for duplicates 
+            / unregistered city / other error';
+        }
+
+        return $dbFeedback;
     }
 
     /**
@@ -387,6 +506,8 @@ class Administrator implements AdminInterface
      * Print html of the content
      * 
      * @param boolean $listDeleted : list only deleted or not
+     * @param boolean $xml         : print in xml
+     * @param boolean $json        : print in json
      * 
      * @return string $table   : prints html table of content
      */
@@ -412,6 +533,45 @@ class Administrator implements AdminInterface
                 return $this->printJSON($result);
             }
         }
+    }
+
+    /**
+     * Print lists of users & buttons for XML / JSON
+     * 
+     * @return string $list : return lists & content
+     */
+    public function printLists()
+    {   
+        $users = $this->list(false);
+        $deleted = $this->list(true);
+
+        // XML button 
+        $xml = "<form action='xml.php' method ='post' target='_blank'>
+        <input type='submit' class='btn2' value='XML'>
+        </form>
+        ";
+        // JSON btn
+        $json = "<form action='json.php' method ='post' target='_blank'>
+        <input type='submit' class='btn2' value='JSON'>
+        </form>
+        ";
+
+        $lists = "<div class='result'>
+
+                <h1> Listed users </h1>
+                $users <br>
+
+                <h1> Print XML </h1>
+                $xml <br>
+
+                <h1> Print JSON </h1>
+                $json <br>
+
+                <h1> Deleted users </h1>
+                $deleted
+                </div> ";
+        
+        return $lists;
     }
 
 
@@ -443,7 +603,7 @@ class Administrator implements AdminInterface
      * 
      * @return string $menu   : prints html content
      */
-    public function cities()
+    private function cities()
     {    
         // The sql 
         $sql = "SELECT name FROM TheCities";

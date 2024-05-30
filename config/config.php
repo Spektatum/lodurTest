@@ -14,6 +14,7 @@ namespace Yso\Base;
 
 use Yso\database as theDb;
 use Yso\admin as admin;
+use Yso\router as router;
 
 // AUTOLOADING
 // - for enabling namespace & access to objectoriented functionality 
@@ -40,9 +41,17 @@ $database = new theDb\PDOconnect($host, $theDb, $user, $pass); // Basic db conne
 // Admin object
 $admin = new admin\Administrator($database);
 
+// Router object
+$router = new router\Router($database, $admin, $_POST);
+
 // On every $_POST, set the data to the object
 if ($_POST) {
-    $admin->setPost($_POST);
+    $admin->setTempStorage1($_POST);
+    $router->setTempStorage1($_POST);
+}
+
+if ($_GET) {
+    $router->setTempStorage2($_GET);
 }
 
 // Database feedback - displays in the html 

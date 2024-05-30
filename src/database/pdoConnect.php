@@ -16,9 +16,10 @@ use PDO;
 use Exception;
 use PDOException;
 
- // phpcs:disable PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore
-
-
+// Code validation update:
+// Disabling phpcs warning for private vars / methods with underscore
+// phpcs:disable PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore
+// phpcs:disable PEAR.NamingConventions.ValidVariableName.PrivateNoUnderscore
 
 /**
  *  PDOconnect
@@ -128,15 +129,14 @@ class PDOconnect implements PDOconnectInterface
      * it will use the PDO method 'prepare' to
      * create an object of the PDO Statement Class from the sql
      *
-     * @param string : $sql   : the sql statement
-     * @param array  : $param : the sql parameters
+     * @param string : $sql : the sql statement
      *
      * @return object $statementPDO;
      */
     private function prepare($sql)
     {
         // prepare
-       return $this->dbPDO->prepare($sql);
+        return $this->dbPDO->prepare($sql);
 
     }
 
@@ -148,7 +148,6 @@ class PDOconnect implements PDOconnectInterface
      * execute the sql statement
      *
      * @param object : $statementPDO : the sql statement object
-     * @param string : $sql          : the sql statement object
      * @param array  : $params       : the sql parameters
      *
      * @return object $statementPDO;
@@ -156,7 +155,7 @@ class PDOconnect implements PDOconnectInterface
     private function execute($statementPDO, $params)
     {
         // execute
-        $status = $statementPDO->execute($params);
+        $statementPDO->execute($params);
 
         return $statementPDO;
     }
@@ -169,8 +168,6 @@ class PDOconnect implements PDOconnectInterface
      * fetch (collect) the data from the sql statement
      *
      * @param object : $statementPDO : the sql statement object
-     * @param array  : $param        : the sql parameters
-     * @param string : $sql          : the sql statement
      *
      * @return object $statementPDO;
      */

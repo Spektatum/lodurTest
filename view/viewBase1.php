@@ -51,12 +51,12 @@
 
         </div>
 
-        <!-- Section 2 for display content -->
+        <!-- Section 2 for display content
         <div class='section2'>
             <?php if (isset($list)) {
                 echo $list;
             } ?>
-        </div>
+        </div> -->
 
         <!-- Database feedback -->
         <div class='feedback'>

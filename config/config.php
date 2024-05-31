@@ -64,11 +64,13 @@ if ($_GET) {
 }
 
 // Make sure the website is reloaded properly
+// to access new data
 $tempStorage = $router->storageTemp;
 $thisRoute = $router->checkRoute('route');
 if ($thisRoute == 'add' && isset($tempStorage['add'])
     || $thisRoute == 'edit' && isset($tempStorage['edit2'])
-    || $thisRoute == 'delete' && isset($tempStorage['delete'])) {
+    || $thisRoute == 'delete' && isset($tempStorage['delete'])
+) {
 
     header('Location: list');
 }

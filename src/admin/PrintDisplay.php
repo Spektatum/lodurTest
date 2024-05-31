@@ -232,47 +232,6 @@ class PrintDisplay implements PrintDisplayInterface
         }
     }
 
-    // /**
-    //  * Edit data step 2
-    //  * 
-    //  * Update with the new user data
-    //  * 
-    //  * @return string $dbFeedback : feedback from the database
-    //  */
-    // public function edit2()
-    // {    
-
-    //     // Control the incoming parameters 
-    //     $name = $this->getPost('name');
-    //     $firstname = $this->getPost('firstname');
-    //     $email = $this->getPost('email');
-    //     $street = $this->getPost('street');
-    //     $zipcode = $this->getPost('zipcode');
-    //     $city = $this->getPost('city');
-
-    //     // Create the query
-    //     $sql = "UPDATE TheUsers SET firstname = ?, email = ?, 
-    //     street = ?, zipcode = ?, city = ? WHERE name = ? ";
-
-    //     $params = [$firstname, $email, $street, $zipcode, $city, $name];
-
-    //     // Return the results
-    //     $res = $this->dbConnect($sql, $params);
-
-    //     if ($res) {
-    //         $dbFeedback = 'Success';
-    
-    //     }
-
-    //     if (!$res) {
-    //         $dbFeedback = 'Some error - check for 
-    //         duplicates / unregistered city / other error';
-    //     }
-
-    //     return $dbFeedback;
-
-    // }
-
     /**
      * Print edit
      * 
@@ -317,56 +276,6 @@ class PrintDisplay implements PrintDisplayInterface
                 
         return html_entity_decode($html);
     }
-
-    // /**
-    //  * Delete (soft)
-    //  * 
-    //  * SOFT DELETES from the database (marks as deleted)
-    //  * 
-    //  * @return string $dbFeedback : feedback from the database
-    //  */
-    // public function delete()
-    // {    
-    //     // Control the incoming parameters 
-    //     $name = $this->getPost('name');
-
-    //     // Create the query
-    //     $sql = "UPDATE TheUsers SET deleted = ? WHERE name = ? ;";
-    //     $params = [true, $name];
-
-    //     // Return the results
-    //     $res = $this->dbConnect($sql, $params);
-    //     if ($res) {
-    //         $dbFeedback = 'Deleted all found';
-    //     }
-
-    //     if (!$res) {
-    //         $dbFeedback = 'Some error - check for duplicates 
-    //         / unregistered city / other error';
-    //     }
-
-    //     return $dbFeedback;
-    // }
-
-    // /**
-    //  * Delete (hard)
-    //  * 
-    //  * Removes it from the database
-    //  * 
-    //  * @return string $dbFeedback : feedback from the database
-    //  */
-    // public function hardDelete()
-    // {    
-    //     // Control the incoming parameters 
-    //     $name = $this->getPost('name');
-
-    //     // Create the query
-    //     $sql = "DELETE FROM TheUsers WHERE name = ? ;";
-    //     $params = [$name];
-
-    //     // Return the results
-    //     return $this->dbConnect($sql, $params);
-    // }
 
     /**
      * Print the HTML table

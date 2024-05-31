@@ -193,8 +193,6 @@ Class Router implements RouterInterface
             // Mark that the website should be reloaded
             $this->memory['reload'] = true;
 
-            // $_SESSION['reload'] = true;
-
             return $this->printDisplay->printLists();
             
             break;

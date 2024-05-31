@@ -42,9 +42,9 @@ Class Router implements RouterInterface
     private $database;      // The database object 
     private $administrator; // The administrator object
     private $printDisplay;  // The administrator object
-    private $storageTemp;   // The stored data (from form / $_POST)
+    public  $storageTemp;   // The stored data (from form / $_POST)
     private $storageTemp2;  // The stored data (from form / $_GET)
-    private $memory;        // The $_SESSION data
+    public  $memory;        // The $_SESSION data
 
     /**
      * Constructor
@@ -67,7 +67,7 @@ Class Router implements RouterInterface
         $this->administrator = $admin;
         $this->printDisplay = $print;
         $this->storageTemp = $this->sanitize($post);
-        $this->memory = $session;
+        $this->memory = [$session];
     }
         
     /**
@@ -190,10 +190,10 @@ Class Router implements RouterInterface
         case "list":
 
             // List results
-            $_SESSION['reload'] = true;
-            // $this->memory['reload'] = 'true';
+            // Mark that the website should be reloaded
+            $this->memory['reload'] = true;
 
-            // var_dump('Set reload list 2');
+            // $_SESSION['reload'] = true;
 
             return $this->printDisplay->printLists();
             

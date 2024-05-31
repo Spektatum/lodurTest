@@ -29,7 +29,7 @@ ErrorDocument 400  /techraSystems/workingOn/lodur/error
     	 Header set X-Content-Type-Options nosniff
    </IfModule>
 
-Header add Cache-Control: 0;
+Header add Cache-Control: max-age=31536000;
 #max-age=31536000
 
 Header add Strict-Transport-Security: max-age=63072000;

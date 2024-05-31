@@ -49,7 +49,7 @@ $database = new theDb\PDOconnect($host, $theDb, $user, $pass); // Basic db conne
 $admin = new admin\Administrator($database);
 $printDisplay = new admin\PrintDisplay($database); 
 
-// // Router object
+// Router object
 $router = new router\Router($database, $admin, $printDisplay, $_POST, $_SESSION);
 
 // On every $_POST, set the data to the object
@@ -63,11 +63,12 @@ if ($_GET) {
     $router->setTempStorage2($_GET);
 }
 
-// Reload the list page
+// Make sure the website is reloaded properly
+$tempStorage = $router->storageTemp;
 $thisRoute = $router->checkRoute('route');
-if ($thisRoute == 'add' && isset($_POST['add'])
-    || $thisRoute == 'edit' && isset($_POST['edit2'])
-    || $thisRoute == 'delete' && isset($_POST['delete'])) {
+if ($thisRoute == 'add' && isset($tempStorage['add'])
+    || $thisRoute == 'edit' && isset($tempStorage['edit2'])
+    || $thisRoute == 'delete' && isset($tempStorage['delete'])) {
 
     header('Location: list');
 }

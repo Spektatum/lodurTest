@@ -38,7 +38,7 @@ CREATE TABLE TheUsers
     email CHAR(100),
     street CHAR(100),
     zipcode CHAR(100),
-    city CHAR(100),
+    city CHAR(100) NOT NULL,
     deleted boolean DEFAULT FALSE,
     	FOREIGN KEY (city) REFERENCES TheCities(name),
     PRIMARY KEY (name)

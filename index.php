@@ -30,6 +30,24 @@ $data = $router->getRoute('route');
 // Check route
 $thisRoute = $router->checkRoute('route');
 
+$actual_link = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+// var_dump($actual_link);
+
+// Refresh if needed
+// echo 'test';
+// $_SESSION['reloadList'] = 'test';
+// var_dump($_SESSION['reloadList']);
+// header("Location:$actual_link");
+
+if (isset($_SESSION['reload'])) {
+//     var_dump($_SESSION['reload']);
+//     echo 'set list';
+
+    unset($_SESSION['reload']);
+//     header("Location:$actual_link");
+    header('Location: listAll');
+}
+
 // Include the version
 $version = 'Lodur Test Sample 1.2';
 

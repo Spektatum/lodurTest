@@ -4,7 +4,7 @@ var Main = {
 
 	init : function(){
 
-        console.log('JavaScript file loaded 62');
+        console.log('JavaScript file loaded 1');
 
 		// // Send AJAX file to reload the php
 		// // So the new data is included

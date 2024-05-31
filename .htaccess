@@ -5,6 +5,8 @@ RewriteRule   ^add$    		    index.php?route=add  [NC]
 RewriteRule   ^edit$    		index.php?route=edit  [NC]
 RewriteRule   ^delete$    		index.php?route=delete [NC]
 RewriteRule   ^list$    		index.php?route=list [NC]
+RewriteRule   ^listAll$    		index.php?route= [NC]
+
 RewriteRule   ^xml$    		    index.php?route=xml  [NC]
 RewriteRule   ^json$    		index.php?route=json  [NC]
 
@@ -27,6 +29,7 @@ ErrorDocument 400  /techraSystems/workingOn/lodur/error
     	 Header set X-Content-Type-Options nosniff
    </IfModule>
 
-#Header add Cache-Control: max-age=31536000;
+Header add Cache-Control: 0;
+#max-age=31536000
 
-#Header add Strict-Transport-Security: max-age=63072000;
+Header add Strict-Transport-Security: max-age=63072000;

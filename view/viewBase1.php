@@ -16,7 +16,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="style/style.css?v=12">
+    <link rel="stylesheet" href="style/style.css?v=1">
     
     <meta property="og:image" 
           content="https://www.spektatum.com/img/stamp/stamp2.jpg">
@@ -24,7 +24,7 @@
     <link rel="icon" href="img/logo.png" type="image/jpg">
 
     <!-- Preload for faster perfomance-->
-    <link rel="preload" href="style/style.css?v=12" as="style">
+    <link rel="preload" href="style/style.css?v=1" as="style">
     <title>  LODUR test program </title>
 
 </head> 
@@ -80,6 +80,6 @@
 
 </body> 
 
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=2"></script>
 
 </html>

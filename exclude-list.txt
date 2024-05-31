@@ -4,4 +4,4 @@ build
 .phpunit.result.cache
 test
 .git
-#config/config.php
+config/config.php

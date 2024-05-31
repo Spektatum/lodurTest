@@ -26,6 +26,13 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+// SESSION
+// Start the named session,
+// the name is based on the path to this file.
+$name = preg_replace("/[^a-z\d]/i", "", __DIR__);
+session_name($name);
+session_start();
+
 // DATABASE CONNECTION
 // Set host and database
 $host = '127.0.0.1';
@@ -42,8 +49,8 @@ $database = new theDb\PDOconnect($host, $theDb, $user, $pass); // Basic db conne
 $admin = new admin\Administrator($database);
 $printDisplay = new admin\PrintDisplay($database); 
 
-// Router object
-$router = new router\Router($database, $admin, $printDisplay, $_POST);
+// // Router object
+$router = new router\Router($database, $admin, $printDisplay, $_POST, $_SESSION);
 
 // On every $_POST, set the data to the object
 if ($_POST) {
@@ -54,6 +61,15 @@ if ($_POST) {
 
 if ($_GET) {
     $router->setTempStorage2($_GET);
+}
+
+// Reload the list page
+$thisRoute = $router->checkRoute('route');
+if ($thisRoute == 'add' && isset($_POST['add'])
+    || $thisRoute == 'edit' && isset($_POST['edit2'])
+    || $thisRoute == 'delete' && isset($_POST['delete'])) {
+
+    header('Location: list');
 }
 
 // Database feedback - displays in the html 

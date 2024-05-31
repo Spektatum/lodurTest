@@ -44,7 +44,7 @@ Class Router implements RouterInterface
     private $printDisplay;  // The administrator object
     private $storageTemp;   // The stored data (from form / $_POST)
     private $storageTemp2;  // The stored data (from form / $_GET)
-    private $staticContent; // An array with static content
+    private $memory;        // The $_SESSION data
 
     /**
      * Constructor
@@ -53,18 +53,21 @@ Class Router implements RouterInterface
      * @param object $admin    : the admin object
      * @param object $print    : the print display object
      * @param object $post     : the $_POST data (form / AJAX messages)
+     * @param object $session  : the $_SESSION data (form / AJAX messages)
      */
     public function __construct(
         database\PDOconnectInterface $database,
         admin\AdminInterface $admin,
         admin\PrintDisplay $print,
         array $post,
+        array $session = null
     ) {
         // Insert the object properties
         $this->database = $database;
         $this->administrator = $admin;
         $this->printDisplay = $print;
         $this->storageTemp = $this->sanitize($post);
+        $this->memory = $session;
     }
         
     /**
@@ -131,6 +134,7 @@ Class Router implements RouterInterface
         // The Switch case
         switch ($route) {
 
+
         case "add":
 
             // Check storageTemp for data
@@ -183,9 +187,14 @@ Class Router implements RouterInterface
             break;
 
         
-        case "lists":
+        case "list":
 
             // List results
+            $_SESSION['reload'] = true;
+            // $this->memory['reload'] = 'true';
+
+            // var_dump('Set reload list 2');
+
             return $this->printDisplay->printLists();
             
             break;

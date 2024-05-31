@@ -56,6 +56,7 @@ class PrintDisplay implements PrintDisplayInterface
         $this->database = $database;
     }
 
+    
     /**
      * Set post data property
      * 
@@ -86,6 +87,7 @@ class PrintDisplay implements PrintDisplayInterface
         return $var;
     }
 
+
     /**
      * Update the database
      * 
@@ -110,6 +112,7 @@ class PrintDisplay implements PrintDisplayInterface
         }
         return $dbFeedback;
     }
+
 
     /**
      * Print form with cities 
@@ -150,6 +153,7 @@ class PrintDisplay implements PrintDisplayInterface
         return html_entity_decode($html);
         
     }
+
 
     /**
      * Autofil form with previous values (for edit)
@@ -228,12 +232,13 @@ class PrintDisplay implements PrintDisplayInterface
         }
 
         if (!isset($result[0])) {
-            return 'Not found';
+            return '<div class="feedback2">Not found</div>';
         }
     }
 
+
     /**
-     * Print edit
+     * Print edit form1
      * 
      * @return string $form : filled in formS
      */
@@ -255,10 +260,11 @@ class PrintDisplay implements PrintDisplayInterface
         return html_entity_decode($html);
     }
 
+
     /**
      * Print delete form
      * 
-     * @return string $form : filled in formS
+     * @return string $form : the form
      */
     public function printDeleteForm()
     {   
@@ -276,6 +282,7 @@ class PrintDisplay implements PrintDisplayInterface
                 
         return html_entity_decode($html);
     }
+
 
     /**
      * Print the HTML table
@@ -316,6 +323,7 @@ class PrintDisplay implements PrintDisplayInterface
         return $table;
     }
 
+
     /**
      * Print XML syntax
      * 
@@ -347,6 +355,7 @@ class PrintDisplay implements PrintDisplayInterface
         return html_entity_decode($xml);
     }
 
+
     /**
      * Print JSON syntax
      * 
@@ -375,6 +384,7 @@ class PrintDisplay implements PrintDisplayInterface
         return html_entity_decode($json);
     }
 
+
     /**
      * List the users - deleted / not deleted
      * Print html of the content
@@ -383,7 +393,7 @@ class PrintDisplay implements PrintDisplayInterface
      * @param boolean $xml         : print in xml
      * @param boolean $json        : print in json
      * 
-     * @return string $table   : prints html table of content
+     * @return string $table   : prints html / json / xml table of content
      */
     public function list($listDeleted, $xml = null, $json = null)
     {    
@@ -408,6 +418,7 @@ class PrintDisplay implements PrintDisplayInterface
             }
         }
     }
+
 
     /**
      * Print lists of users & buttons for XML / JSON
@@ -475,7 +486,7 @@ class PrintDisplay implements PrintDisplayInterface
     /**
      * DropDownMenu cities - for form
      * 
-     * @return string $menu   : prints html content
+     * @return string $menu   : prints html content menu
      */
     private function cities()
     {    

@@ -62,11 +62,6 @@ class PDOconnect implements PDOconnectInterface
             return false;
         }
 
-        // // Set up for phpunit test
-        // $this->test['prepare'] = false;
-        // $this->test['execute'] = false;
-        // $this->test['fetchAll'] = false;
-
         // Connect to database
         $dsn = "mysql:dbname=$dbName;host=$host";
         $user = "$user";

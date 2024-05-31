@@ -172,6 +172,20 @@ select {
 
 }
 
+.feedback2 {
+    background-color: #87dde9;
+    border-radius: 24px;
+    color: #276c75;
+    font-size: 1em;
+    margin: 0 auto;
+    max-width: 500px;
+    min-width: 250px;
+    text-align: center;
+    padding: 3%;
+    width: 94%;
+}
+
+
 table {
     border-collapse: collapse;
     /* border: solid white 2px; */
@@ -228,6 +242,6 @@ table {
 
   .result {
     overflow-x: auto;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
   }

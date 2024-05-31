@@ -41,5 +41,56 @@ use Exception;
 
 interface AdminInterface
 {
+    /**
+     * Constructor
+     * 
+     * @param object $database : the database connection object
+     */
+    public function __construct(
+        database\PDOconnectInterface $database
+    );
+
+    /**
+     * Set post data property
+     * 
+     * @param array $postContent : post content
+     * 
+     * @return string $var : sanitized var
+     */
+    public function setTempStorage1($postContent);
+
+    /**
+     * Add to the database
+     * 
+     * @return string $dbFeedback : feedback from the database
+     */
+    public function add();
+
+    /**
+     * Edit data step 2
+     * 
+     * Update with the new user data
+     * 
+     * @return string $dbFeedback : feedback from the database
+     */
+    public function edit2();
+    
+    /**
+     * Delete (soft)
+     * 
+     * SOFT DELETES from the database (marks as deleted)
+     * 
+     * @return string $dbFeedback : feedback from the database
+     */
+    public function delete();
+
+    /**
+     * Delete (hard)
+     * 
+     * Removes it from the database
+     * 
+     * @return string $dbFeedback : feedback from the database
+     */
+    public function hardDelete();
 
 }

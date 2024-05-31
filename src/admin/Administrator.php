@@ -58,6 +58,7 @@ class Administrator implements AdminInterface
         $this->database = $database;
     }
 
+    
     /**
      * Set post data property
      * 
@@ -88,6 +89,7 @@ class Administrator implements AdminInterface
         return $var;
     }
 
+
     /**
      * Update the database
      * 
@@ -112,6 +114,7 @@ class Administrator implements AdminInterface
         }
         return $dbFeedback;
     }
+
 
     /**
      * Add to the database
@@ -141,15 +144,20 @@ class Administrator implements AdminInterface
         $result = $this->dbConnect($sql, $params);
         // Feedback
         if ($result) {
-            $dbFeedback = 'Success';
+            $dbFeedback = '<div class="feedback2">
+                                Success
+                            </div>';
         }
 
         if (!$result) {
-            $dbFeedback = 'Some error - check for 
-                           duplicates / unregistered city / other error';
+            $dbFeedback = '<div class="feedback2">
+                                Some error - check for 
+                                duplicates / unregistered city / other error
+                           </div>';
         }
         return $dbFeedback;
     }
+
 
     /**
      * Edit data step 2
@@ -178,17 +186,23 @@ class Administrator implements AdminInterface
         $res = $this->dbConnect($sql, $params);
 
         if ($res) {
-            $dbFeedback = 'Success';
+            $dbFeedback = '<div class="feedback2">
+                              Success
+                           </div>';
     
         }
+
         if (!$res) {
-            $dbFeedback = 'Some error - check for 
-            duplicates / unregistered city / other error';
+            $dbFeedback = ' <div class="feedback2"> 
+                                Some error - check for 
+                                duplicates / unregistered city / other error
+                            </div>';
         }
 
         return $dbFeedback;
 
     }
+
 
     /**
      * Delete (soft)
@@ -209,16 +223,21 @@ class Administrator implements AdminInterface
         // Return the results
         $res = $this->dbConnect($sql, $params);
         if ($res) {
-            $dbFeedback = 'Deleted all found';
+            $dbFeedback = ' <div class="feedback2"> 
+                                Deleted all found, if found.
+                            </div>';
         }
 
         if (!$res) {
-            $dbFeedback = 'Some error - check for duplicates 
-            / unregistered city / other error';
+            $dbFeedback = '<div class="feedback2"> 
+                                Some error - check for duplicates 
+                                 / unregistered city / other error
+                           </div>';
         }
 
         return $dbFeedback;
     }
+
 
     /**
      * Delete (hard)

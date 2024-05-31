@@ -53,7 +53,7 @@ Class Router implements RouterInterface
      * @param object $admin    : the admin object
      * @param object $print    : the print display object
      * @param object $post     : the $_POST data (form / AJAX messages)
-     * @param object $session  : the $_SESSION data (form / AJAX messages)
+     * @param object $session  : the $_SESSION data (form / AJAX messages) 
      */
     public function __construct(
         database\PDOconnectInterface $database,
@@ -70,31 +70,36 @@ Class Router implements RouterInterface
         $this->memory = [$session];
     }
         
+    
     /**
      * Temporal storage
-     * Set temporal storage (post data)
+     * Set temporal storage ($_POST data)
+     * and sanitize
      * 
      * @param array $postContent : post content
      * 
-     * @return string $var : sanitized var
+     * @return void 
      */
     public function setTempStorage1($postContent)
     {
         $this->storageTemp = $this->sanitize($postContent);
     }
 
+
     /**
      * Temporal storage 2
-     * Set temporal storate (get data)
+     * Set temporal storate ($_GET)
+     * and sanitize
      * 
-     * @param array $getContent : post content
+     * @param array $getContent : get content
      * 
-     * @return string $var : sanitized var
+     * @return void
      */
     public function setTempStorage2($getContent)
     {   
         $this->storageTemp2 = $this->sanitize($getContent);
     }
+
 
     /**
      * Sanitize content
@@ -120,12 +125,13 @@ Class Router implements RouterInterface
         return $sanitizedArr;
     }
 
+
     /**
-     * Read route
+     * Read route & return the data (main function)
      * 
-     * @param string $route : the route for data return
+     * @param string $route : the route name
      * 
-     * @return mixed $data : returns the data
+     * @return mixed $data : the data
      */
     public function read(
         $route
@@ -224,10 +230,12 @@ Class Router implements RouterInterface
         }
     }
 
+
     /**
      * Get route
-     * Get the data for the current active route.
-     * Gets the data from the router.
+     * Get the data for the current 
+     * active route stored in the memory ($_GET).
+     * Connects with memory & router.
      * So route 'list' returns the lists from the database.
      * 
      * @param string $route : the route for data return
@@ -251,9 +259,10 @@ Class Router implements RouterInterface
         return $this->read('');
     }
 
+
     /**
      * Check route
-     * See what is set in the temporal storage ($_GET)
+     * See route is set in the temporal storage ($_GET)
      * 
      * @param string $route : the route for data return
      * 

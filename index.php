@@ -23,8 +23,10 @@ require __DIR__ . "/config/config.php";
 
 // DATA
 // Get the content from the router
-// $data = $router->read('add');
 $data = $router->getRoute('route');
+if (!$data) {
+    $data = '<no data>';
+}
 
 // Check route
 $thisRoute = $router->checkRoute('route');

@@ -62,18 +62,16 @@ if ($_POST) {
 if ($_GET) {
     $router->setTempStorage2($_GET);
 }
-
 // Make sure the website is reloaded properly
 // to access new data
-$tempStorage = $router->storageTemp;
-$thisRoute = $router->checkRoute('route');
-if ($thisRoute == 'add' && isset($tempStorage['add'])
-    || $thisRoute == 'edit' && isset($tempStorage['edit2'])
-    || $thisRoute == 'delete' && isset($tempStorage['delete'])
-) {
-
-    header('Location: list');
-}
+// $tempStorage = $router->storageTemp; // $_POST variable
+// $thisRoute = $router->checkRoute('route');
+// if ($thisRoute == 'add' && isset($tempStorage['add'])
+//     || $thisRoute == 'edit' && isset($tempStorage['edit2'])
+//     || $thisRoute == 'delete' && isset($tempStorage['delete'])
+// ) {
+//     // header('Location:');
+// }
 
 // Database feedback - displays in the html 
 // var_dump($database);

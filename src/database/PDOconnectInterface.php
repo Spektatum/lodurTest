@@ -38,4 +38,17 @@ interface PDOconnectInterface
      */
     public function __construct($host, $dbName, $user, $password);
 
+    /**
+     * The getData
+     * getData gets the data from the database
+     * it works according to the PDO scheme:
+     * prepare, execute, fetch
+     *
+     * @param string $sql   : the sql statement
+     * @param array  $param : the sql parameters
+     *
+     * @return object : $res : the result
+     */
+    public function dbConnect($sql, $param=[]);
+
 }

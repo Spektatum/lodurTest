@@ -16,7 +16,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="style/style.css?v=2">
+    <link rel="stylesheet" href="style/style.css?v=4">
     
     <meta property="og:image" 
           content="https://www.spektatum.com/img/stamp/stamp2.jpg">
@@ -24,7 +24,7 @@
     <link rel="icon" href="img/logo.png" type="image/jpg">
 
     <!-- Preload for faster perfomance-->
-    <link rel="preload" href="style/style.css?v=2" as="style">
+    <link rel="preload" href="style/style.css?v=4" as="style">
     <title>  LODUR test program </title>
 
 </head> 
@@ -37,10 +37,10 @@
             <?php if (isset($header)) {
                 echo $header;
             } ?>
-                <a href='add' id='add'> ADD </a> 
-                <a href='edit' id='edit'> EDIT </a> 
-                <a href='delete' id='delete'> DELETE </a>
-                <a href='list' id='list'> LIST </a>  
+                <a href='add'> ADD </a> 
+                <a href='edit'> EDIT </a> 
+                <a href='delete'> DELETE </a>
+                <a href='list'> LIST </a>  
         </div>
 
         <!-- Section 1 for form -->

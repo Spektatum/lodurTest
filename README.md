@@ -1,4 +1,6 @@
+Simple php framework completely from scratch
 Test site: https://spektatum.com/Lodur2/
+
 <h1>Manual Set Up </h1>
 <h2>Set up the DB </h2>
 MySQL database files are found in database directory.
